@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" [matMenuTriggerFor]="topMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{'TITLES.FULL_TITLE' | translate}}</span>
+  <img class="hadecalmLogo" src="assets/favicon.png" alt="">
+</mat-toolbar>
+
+<mat-menu #topMenu="matMenu">
+  <button mat-menu-item (click)="goHome()">
+    <mat-icon>home</mat-icon>
+    <span>{{'MENU_OPTIONS.HOME' | translate}}</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>help_outline</mat-icon>
+    <span>{{'MENU_OPTIONS.ABOUT_US' | translate}}</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>code</mat-icon>
+    <span>{{'MENU_OPTIONS.VIEW_CODE' | translate}}</span>
+  </button>
+  <button mat-menu-item (click)="goESIWeb()">
+    <mat-icon>school</mat-icon>
+    <span>{{'MENU_OPTIONS.ESI_WEB' | translate}}</span>
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="menuLanguage">
+    <mat-icon>language</mat-icon>
+    <span>{{'MENU_OPTIONS.LANGUAGE.TITLE' | translate}}</span>
+  </button>
+</mat-menu>
+
+<mat-menu #menuLanguage="matMenu">
+  <button mat-menu-item>
+    <span class="flag-icon flag-icon-es rightSpace"></span>
+    {{'MENU_OPTIONS.LANGUAGE.SPANISH' | translate}}
+  </button>
+  <button mat-menu-item>
+    <span class="flag-icon flag-icon-gb rightSpace"></span>
+    {{'MENU_OPTIONS.LANGUAGE.ENGLISH' | translate}}
+  </button>
+</mat-menu>

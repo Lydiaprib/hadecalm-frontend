@@ -1,0 +1,28 @@
+{
+  "TITLES": {
+    "FULL_TITLE": "Herramienta de Ayuda para la Digitalización de Empresas de Castilla-La Mancha",
+    "HADECALM": "HADECALM"
+  },
+  "INTRODUCTION": "Esta herramienta tiene el propósito de servir como una ayuda a las pymes y pequeñas empresas de Castilla-La Mancha para medir el grado de digitalización de su negocio y ayudar en el proceso de mejora en la digitalización del mismo.",
+  "BUTTONS": {
+    "START": "Comenzar la evaluación"
+  },
+  "MENU_OPTIONS": {
+    "HOME": "Inicio",
+    "ABOUT_US": "Sobre HADECALM",
+    "VIEW_CODE": "Repositorio de código",
+    "ESI_WEB": "Web ESI",
+    "LANGUAGE": {
+      "TITLE": "Idioma",
+      "SPANISH": "Español",
+      "ENGLISH": "English"
+    }
+  },
+  "INITIAL_FORM": {
+    "PROVINCE_SELECTOR": "Seleccione la provincia",
+    "SECTOR_SELECTOR": "Seleccione el sector de la empresa",
+    "EMPLOYEE_NUMBER": "Número de empleados de la empresa",
+    "ASPECTS": "Indique los aspectos que analizar"
+  },
+  "CONTINUE": "Continuar"
+}

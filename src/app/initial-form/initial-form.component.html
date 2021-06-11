@@ -1,0 +1,41 @@
+<form *ngIf="formGroup !== undefined" [formGroup]="formGroup">
+
+  <div class="divContent">
+
+    <mat-form-field appearance="fill" class="form-row-12">
+      <mat-label>{{'INITIAL_FORM.PROVINCE_SELECTOR' | translate}}</mat-label>
+      <mat-icon matPrefix>terrain</mat-icon>
+      <mat-select formControlName="province" required>
+        <mat-option *ngFor="let province of provinces" [value]="province">{{province}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-row-12">
+      <mat-label>{{'INITIAL_FORM.SECTOR_SELECTOR' | translate}}</mat-label>
+      <mat-icon matPrefix>work</mat-icon>
+      <mat-select formControlName="sector" required>
+        <mat-option *ngFor="let sector of sectors" [value]="sector">{{sector}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-row-12">
+      <mat-label>{{'INITIAL_FORM.EMPLOYEE_NUMBER' | translate}}</mat-label>
+      <mat-icon matPrefix>people</mat-icon>
+      <input matInput #input type="number" placeholder="p. ej. 50" formControlName="employees" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-row-12">
+      <mat-label>{{'INITIAL_FORM.ASPECTS' | translate}}</mat-label>
+      <mat-icon matPrefix>fact_check</mat-icon>
+      <mat-select formControlName="aspects" multiple required>
+        <mat-option *ngFor="let aspect of aspects" [value]="aspect">{{aspect}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button class="startButton marginTop30" color="primary" [disabled]="!formGroup.valid">{{'CONTINUE' | translate}}
+      <mat-icon matPrefix>navigate_next</mat-icon>
+    </button>
+
+  </div>
+
+</form>
