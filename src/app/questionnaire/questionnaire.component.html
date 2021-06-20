@@ -1,0 +1,12 @@
+<h1 class="bigTitle">{{title}}</h1>
+<div class="divContent">
+
+  <div *ngIf="isMainTopic" class="introduction">
+    {{'MAIN_TOPIC_DESCRIPTIONS.FIRST_PART' | translate}} {{title | lowercase}} {{'MAIN_TOPIC_DESCRIPTIONS.SECOND_PART' | translate}}
+  </div>
+
+  <button mat-raised-button class="startButton marginTop30" color="primary" (click)="nextQuestion(true)">{{'CONTINUE' | translate}}
+    <mat-icon matPrefix>navigate_next</mat-icon>
+  </button>
+
+</div>
