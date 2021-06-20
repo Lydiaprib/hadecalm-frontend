@@ -15,6 +15,7 @@ import { InitialFormComponent } from './initial-form/initial-form.component';
 import { RouterModule, Routes } from '@angular/router';
 import { InitialFormModule } from './initial-form/initial-form.module';
 import { IntroductionModule } from './introduction/introduction.module';
+import { QuestionnaireModule } from './questionnaire/questionnaire.module';
 
 const routes: Routes = [
   {
@@ -22,8 +23,13 @@ const routes: Routes = [
     loadChildren: () => import('./initial-form/initial-form.module').then(m => InitialFormModule)
   },
   // { path: 'general', component: InitialFormComponent },
-  { path: 'introduction',
+  {
+    path: 'introduction',
     loadChildren: () => import('./introduction/introduction.module').then(m => IntroductionModule)
+  },
+  {
+    path: 'questionnaire',
+    loadChildren: () => import('./questionnaire/questionnaire.module').then(m => QuestionnaireModule)
   },
   { path: '', redirectTo: '/introduction', pathMatch: 'full'},
 ];

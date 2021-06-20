@@ -24,5 +24,9 @@
     "EMPLOYEE_NUMBER": "Número de empleados de la empresa",
     "ASPECTS": "Indique los aspectos que analizar"
   },
-  "CONTINUE": "Continuar"
+  "CONTINUE": "Continuar",
+  "MAIN_TOPIC_DESCRIPTIONS": {
+    "FIRST_PART": "A continuación se procederá a evaluar la forma de",
+    "SECOND_PART": "en su empresa."
+  }
 }

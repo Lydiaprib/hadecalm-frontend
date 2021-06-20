@@ -28,11 +28,11 @@
       <mat-label>{{'INITIAL_FORM.ASPECTS' | translate}}</mat-label>
       <mat-icon matPrefix>fact_check</mat-icon>
       <mat-select formControlName="aspects" multiple required>
-        <mat-option *ngFor="let aspect of aspects" [value]="aspect">{{aspect}}</mat-option>
+        <mat-option *ngFor="let aspect of aspects" [value]="aspect">{{aspect.description}}</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <button mat-raised-button class="startButton marginTop30" color="primary" [disabled]="!formGroup.valid">{{'CONTINUE' | translate}}
+    <button mat-raised-button class="startButton marginTop30" color="primary" [disabled]="!formGroup.valid" (click)="continue()">{{'CONTINUE' | translate}}
       <mat-icon matPrefix>navigate_next</mat-icon>
     </button>
 

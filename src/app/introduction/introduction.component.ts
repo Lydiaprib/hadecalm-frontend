@@ -11,13 +11,13 @@ export class IntroductionComponent implements OnInit {
 
   constructor(
     protected translate: TranslateService,
-    protected router: Router) { }
+    protected _router: Router) { }
 
   ngOnInit() {
   }
 
   public onContinueClick() {
-    this.router.navigate(['general/']);
+    this._router.navigate(['general/']);
   }
 
 }
