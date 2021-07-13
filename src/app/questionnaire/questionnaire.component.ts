@@ -20,6 +20,7 @@ export class QuestionnaireComponent implements OnInit {
   public aspects: ITopicQuestions[] = [];
   public title: string = '';
   public isMainTopic: boolean = true;
+  public showSpinner: boolean = false;
   public currentQuestion: ITopicQuestions = {
     id: '',
     active: false,
@@ -47,30 +48,42 @@ export class QuestionnaireComponent implements OnInit {
   private newMainTopic() {
     this.title = this.aspects[this.mainIndex].description;
     this._services.getQuestionByParentId(this.aspects[this.mainIndex].id).subscribe(res => {
-      this.questionArray.push(res);
+      res.forEach((element: ITopicQuestions) => {
+        this.questionArray.push(element);
+      })
     });
     this.isMainTopic = true;
     this.mainIndex = ++this.mainIndex;
   }
 
   public nextQuestion(answer: boolean) {
+    this.showSpinner = true;
     if(!!this.currentQuestion && answer === this.currentQuestion.answer) {
       this._services.getQuestionByParentId(this.currentQuestion.id).subscribe(res => {
-        this.questionArray.push(res);
+        res.forEach((element: ITopicQuestions) => {
+          this.questionArray.push(element);
+        })
       });
     }
-    if(this.questionArray.length < this.questionIndex) {
-      if(this.aspects.length < this.mainIndex) {
+    console.log(this.questionArray.length, this.questionIndex);
+    if(this.questionArray.length <= this.questionIndex) {
+      if(this.aspects.length <= this.mainIndex) {
         console.log('FIN DE LAS PREGUTNAS');
+        this.currentQuestion = {
+          id: '',
+          active: false,
+          answer: false,
+          description: ''};
       } else {
         this.newMainTopic();
       }
     } else {
       this.isMainTopic = false;
+      console.log(this.questionArray, this.questionIndex);
       this.currentQuestion = this.questionArray[this.questionIndex];
       this.questionIndex = ++this.questionIndex;
       console.log('currentquestion', this.currentQuestion);
     }
+    this.showSpinner = false;
   }
-
 }
