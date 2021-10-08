@@ -7,16 +7,21 @@
 
   <div *ngIf="!isMainTopic && currentQuestion.id !== ''" class="questionDescription">
     {{currentQuestion.description}}
-
     <br>
-
-    <button mat-fab class="buttonHeight" color="primary" (click)="nextQuestion(true)">
-      <mat-icon matPrefix>thumb_up</mat-icon>
-    </button>
-
-    <button mat-fab class="buttonSpaceLeft buttonHeight" color="warn" (click)="nextQuestion(false)">
-      <mat-icon matPrefix>thumb_down</mat-icon>
-    </button>
+    <div *ngIf="currentQuestion.options === null || currentQuestion.options === undefined">
+      <button mat-fab class="buttonHeight" color="primary" (click)="nextQuestion(true)">
+        <mat-icon matPrefix>thumb_up</mat-icon>
+      </button>
+      <button mat-fab class="buttonSpaceLeft buttonHeight" color="warn" (click)="nextQuestion(false)">
+        <mat-icon matPrefix>thumb_down</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="currentQuestion.options !== null && currentQuestion.options !== undefined">
+      <mat-checkbox *ngFor="let option of currentQuestion.options" [id]="option" color="primary" class="checkBoxes" (change)="checkBoxChange($event.checked, $event.source.id)">
+        <mat-icon [svgIcon]="RRSSIcons(option)" [class]="RRSSIcons(option)" class="RRSSIcons"></mat-icon>
+        {{option | uppercase}}
+      </mat-checkbox>
+    </div>
   </div>
 
   <button *ngIf="isMainTopic" mat-raised-button class="startButton marginTop30" color="primary" (click)="nextQuestion(true)">{{'CONTINUE' | translate}}
